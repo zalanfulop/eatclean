@@ -172,7 +172,7 @@ void saveUserData(const User* user) {
     // If the user does not exists, save the new user data
     if(!userExists) {
         std::ofstream outFile("user_data.txt", std::ios::app); // Append mode
-        outFile << user->getName() << user->getScore() << std::endl;
+        outFile << user->getName() << " " << user->getScore() << std::endl;
         outFile.close();
         std::cout << "User \"" << user->getName() << "\" saved succesfully!" << std::endl;
     } 
