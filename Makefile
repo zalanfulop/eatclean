@@ -1,6 +1,6 @@
 CXX = g++
 
-SOURCES = main.cpp Food.cpp
+SOURCES = main.cpp Food.cpp User.cpp
 TARGET = eatclean
 
 $(TARGET): $(SOURCES)

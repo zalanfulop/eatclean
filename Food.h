@@ -1,12 +1,14 @@
 #ifndef FOOD_H
 #define FOOD_H
 #include <iostream>
+#include "User.h"
+
 
 // Definition of Food class
 class Food{
 private:
     std::string name;
-    // Energy is in kJ
+    // Energy is in kCal
     int energy;
     // Idea: aggregate data in a struct
     float fat, sat_fat, chydrate, sugar, fiber, protein, salt;
@@ -16,6 +18,8 @@ public:
 
     // Method to display information about the food
     void displayInfo() const;
+
+    void askQuestion(User* user) const;
 };
 
 
