@@ -38,15 +38,27 @@ void Food::askQuestion(User* user) const {
     // Ask the question
     std::cout << "Name of food: " << name << std::endl;
     std::cout << "How many grams of " << selectedNutrient << " are in 100g of this food?" << std::endl;
-    std::cout << "Your choice: ";
+
+    // HELP UPDATE
+    if (actualValue <= 20) {
+        std::cout << "Tipp: 0 - 20" << std::endl;
+    } else if (actualValue <= 40 && actualValue > 20) {
+        std::cout << "Tipp: 20 - 40" << std::endl;
+    } else if (actualValue <= 60 && actualValue > 40 ) {
+        std::cout << "Tipp: 40 - 60" << std::endl;
+    } else if(actualValue <= 80 && actualValue > 60 ) {
+        std::cout << "Tipp: 60 - 80" << std::endl;
+    } else std::cout << "Tipp: 80 - 100";
 
     // Get user input
+    std::cout << "Your choice: ";
     float userGuess;
     std::cin >> userGuess;
 
     // Calculate the allowed range (±10%)
-    float lowerBound = actualValue * 0.9;
-    float upperBound = actualValue * 1.1;
+    int bonus = 2;
+    float lowerBound = actualValue * 0.9 - bonus;
+    float upperBound = actualValue * 1.1 + bonus;
 
     // Check if the guess is within the range
     if (userGuess >= lowerBound && userGuess <= upperBound) {

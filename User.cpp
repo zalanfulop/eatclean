@@ -1,9 +1,9 @@
 #include "User.h"
 
 // Constructor
-User::User(std::string& name): name(name), score(0) {}
+User::User(const std::string& name): name(name), score(0) {}
 // Constructor when the user is loaded from file
-User::User(std::string& name, int score): name(name), score(score) {}
+User::User(const std::string& name, int score): name(name), score(score) {}
 
 // Getters
 std::string User::getName() const { return name; }

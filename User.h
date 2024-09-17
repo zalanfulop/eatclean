@@ -8,9 +8,9 @@ private:
     int score;
 public:
     // Constructor
-    User(std::string& name);
+    User(const std::string& name);
     // Constructor if the user is loaded from file
-    User(std::string& name, int score);
+    User(const std::string& name, int score);
 
     // Getters
     std::string getName() const;
