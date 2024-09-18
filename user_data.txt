@@ -1,5 +1,6 @@
-zazi 0
+zazi 4
 cica 0
 cicamica 0
 ToGe 0
 tester 0
+asd 0

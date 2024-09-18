@@ -104,6 +104,7 @@ int main() {
                 // (rand() % (upper_bound - lower_bound + 1)) + lower_bound);
                 randomIndex = (rand() % (shop_bag.size() + 1));
                 shop_bag[randomIndex]->askQuestion(user);
+                
                 break;
             case 2:
                 std::cout << "Please provide a username: ";
@@ -119,6 +120,7 @@ int main() {
             case 3:
                 std::cout << "Please provide your username: ";
                 std::cin >> name;
+
                 user = loadUserData(name);
                 // Implement logic to initialize the chosen user
                 break;
