@@ -7,7 +7,7 @@
 class User{
 private:
     std::string name;
-    int score;
+    long long score;
     // Save current score
     void saveScore() const;
 public:

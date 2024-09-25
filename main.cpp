@@ -3,6 +3,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <limits>
+
 
 // Save user data to file
 void saveUserData(const User* user);
@@ -88,8 +90,23 @@ int main() {
         std::cout << "3: Choose an existing user." << std::endl;
         std::cout << "4: Exit application." << std::endl;
         std::cout << "Your choice: ";
+        
         int choice;
+        while (true) {
         std::cin >> choice;
+
+        if (std::cin.fail()) {
+            // Input failed, meaning the user entered something that's not an integer
+            std::cin.clear(); // Clear the error flag on std::cin
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter an integer!" << std::endl;
+        } else {
+            // Input was successful, exit the loop
+            break;
+        }
+    }
+        
+
         std::string name;
         switch (choice) {
             case 1:
