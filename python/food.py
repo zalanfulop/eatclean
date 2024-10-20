@@ -39,17 +39,20 @@ class Food:
 
         print(f'Name of food: {self._name}')
         print(f'How many grams of {nutri_names[randIndex]} are in 100g of this food?')
-        print('Your choice: ')
 
 
-        userGuess = input()
+        userGuess = input("Your choice: ")
+        try:
+            userGuess = float(userGuess)
+        except ValueError:
+            raise ValueError("The guess should be a number.")
 
         # Define the bounds of the accepted answer interval
         bonus = 2
         lowerBound, upperBound = actualValue * 0.9 - bonus, actualValue * 1.1 + bonus
 
         # Check if the guess is in the allowed range
-        if int(userGuess) >= lowerBound and int(userGuess) <= upperBound:
+        if userGuess >= lowerBound and userGuess <= upperBound:
             print('Correct! Your guess was within the allowed range.')
             print(f'The exact value is: {actualValue} g.')
             return True
