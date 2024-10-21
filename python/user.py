@@ -2,16 +2,29 @@ from food import Food
 import random
 
 class User:
-    def __init__(self, name, score = 0):
+    def __init__(self, name = str, score = 0):
         if not isinstance(name, str):
-            raise ValueError("Name should be a string!")
+            raise ValueError("Name must be a string.")
+        if not isinstance(score, int):
+            raise ValueError("Score must be an integer.")
+
         self.name = name
+        self.score = score
 
     def getName(self):
         print(f"User name is: {self.name}")
 
+    def getScore(self):
+        print(f'Score of {self.name} is {self.score}')
+
     # Take the whole list? Who should choose a food item?
-    def play(items=list(Food)) -> None:
+    def play(self, items=list[Food]) -> None:
+        if items[random.randint(0, len(items) - 1)].askQuestion():
+            self.score += 1;
+
+
+    def saveScore(self):
+        pass
         # give me a question: asks from a food item
 
         # 

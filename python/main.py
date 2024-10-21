@@ -3,7 +3,7 @@ from food import Food
 import random
 
 # Function definitions
-def convert_vals(line):
+def convert_vals(line = str) -> list:
     """Takes a string of values separated with '|',
     puts the values into a list,
     converts the elements to the correct type for Food class.
@@ -30,42 +30,23 @@ for line in data.split('\n'):
     #food_items[-1].displayInfo()
 
 megegy_menet = True
-while(megegy_menet):
+while megegy_menet:
     print('Please input a number according to your choice and press ENTER.')
     print('1 - Give me a question!')
     print('2 - Exit.')
-    choice = input('Input: ')
-    try:
-        choice = int(choice)
-    except ValueError:
-        raise ValueError('Your choice should be a whole number.')
-    
+    while True:
+        try:
+            choice = int(input('Input: '))
+            break
+        except ValueError:
+            print('The input should be a whole number.')
+            #raise ValueError('Your choice should be a whole number.')
+
     match choice:
         case 1:
             food_items[random.randint(0, len(food_items) - 1)].askQuestion()
-            continue
         case 2:
             megegy_menet = False
+            print('Good bye!')
         case default:
-            "Choose 1 || 2."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Display 5 random food items
-for _ in range(5):
-    a = food_items[random.randint(0, len(food_items) - 1)]
-    a.askQuestion()
+            print("Choose 1 || 2.")

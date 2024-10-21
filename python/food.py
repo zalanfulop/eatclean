@@ -27,7 +27,7 @@ class Food:
         print(f'Energy: {self._energy} kCal.')
 
 
-    def askQuestion(self):
+    def askQuestion(self) -> bool:
         """Tells the user which food is in question.
         Randomly picks a nutritional value and asks the user to guess the value.
         Returns True if the answer was in the allowed range, False otherwise.
@@ -40,12 +40,14 @@ class Food:
         print(f'Name of food: {self._name}')
         print(f'How many grams of {nutri_names[randIndex]} are in 100g of this food?')
 
-
-        userGuess = input("Your choice: ")
-        try:
-            userGuess = float(userGuess)
-        except ValueError:
-            raise ValueError("The guess should be a number.")
+        while True:
+            userGuess = input("Your choice: ")
+            try:
+                userGuess = float(userGuess)
+                break
+            except ValueError:
+                print('The guess should be a number.')
+                #raise ValueError("The guess should be a number.")
 
         # Define the bounds of the accepted answer interval
         bonus = 2
