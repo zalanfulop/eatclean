@@ -1,6 +1,3 @@
-from food import Food
-import random
-
 class User:
     def __init__(self, name = str, score = 0):
         if not isinstance(name, str):
@@ -12,16 +9,19 @@ class User:
         self.score = score
 
     def getName(self):
-        print(f"User name is: {self.name}")
+        return self.name
 
     def getScore(self):
-        print(f'Score of {self.name} is {self.score}')
+        return self.score
 
-    # Take the whole list? Who should choose a food item?
-    def play(self, items=list[Food]) -> None:
-        if items[random.randint(0, len(items) - 1)].askQuestion():
-            self.score += 1;
-
+    # 
+    # 
+    def play(self, win) -> None:
+            """ Add a score if the user gives a correct answer.
+            Gets the input: return value of a Food object's askQuestion method.
+            """
+            if win:
+                 self.score += 1
 
     def saveScore(self):
         pass
@@ -31,12 +31,3 @@ class User:
 
         # loads data into database
         # create container to store obejcts in memory when a user decides to play
-
-        
-
-
-
-
-
-user1 = User('matyika')
-user1.getName()
