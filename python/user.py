@@ -8,10 +8,10 @@ class User:
         self.name = name
         self.score = score
 
-    def getName(self):
+    def getName(self) -> None:
         return self.name
 
-    def getScore(self):
+    def getScore(self) -> None:
         return self.score
 
     # 
@@ -22,6 +22,8 @@ class User:
             """
             if win:
                  self.score += 1
+                 # Should the user write into the database?
+                 # Or could call an 'update database' method.
 
     def saveScore(self):
         pass

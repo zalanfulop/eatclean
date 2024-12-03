@@ -22,7 +22,7 @@ class Food:
         self._protein = protein
         self._salt = salt
 
-    def displayInfo(self):
+    def displayInfo(self) -> None:
         print(f"Name of food: {self._name}")
         print(f'Energy: {self._energy} kCal.')
 
